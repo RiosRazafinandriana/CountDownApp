@@ -52,3 +52,48 @@ html, body, #root {
 	color: rgb(56 133 138);
 	font-weight: 600;
 }
+
+/* Responsive styles for mobile devices */
+@media screen and (max-width: 480px) {
+    .timer {
+        padding: 1rem;
+        font-size: 2rem;
+        width: 90%; /* prendre presque toute la largeur disponible */
+        margin: 0 auto;
+    }
+
+    button {
+        width: 100px;
+        height: 50px;
+        font-size: 1.2rem;
+    }
+
+    /* Ajuster le groupe de boutons pour qu'ils restent sur une ligne */
+    .timer > div {
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap; /* permet aux boutons de passer à la ligne si nécessaire */
+        justify-content: center;
+    }
+
+    .switch-btn {
+        top: 0.5rem;
+        left: 0.5rem;
+        padding: 0.3rem 0.5rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* Pour les très petits écrans */
+@media screen and (max-width: 320px) {
+    .timer {
+        padding: 0.8rem;
+        font-size: 1.8rem;
+    }
+
+    button {
+        width: 90px;
+        height: 45px;
+        font-size: 1rem;
+    }
+}
