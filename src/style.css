@@ -1,0 +1,27 @@
+.timer {
+	display: flex;
+	flex-direction: column; 
+	align-items: center;    
+	justify-content: center; 
+	gap: 1rem; /* espace plus grand */
+	font-size: 2.5rem; /* texte énorme pour <label> et <p> */
+}
+
+button {
+	width: 150px;       /* boutons beaucoup plus larges */
+	height: 70px;       /* boutons plus hauts */
+	font-size: 1.8rem;  /* texte des boutons grand */
+	cursor: pointer;
+    border-radius: 15px;
+}
+
+html, body, #root {
+	height: 100%;
+	margin: 0;
+}
+
+#root {
+	display: flex;
+	align-items: center;   
+	justify-content: center; 
+}
