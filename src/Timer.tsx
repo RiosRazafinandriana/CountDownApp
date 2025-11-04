@@ -9,14 +9,46 @@ const Timer = () => {
     const [mode, setMode] = useState<"work" | "break">("work");
     const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null); // stocke l'intervalle 
     const { playSound } = useWithSound(alarm)
+    const wakeLockRef = useRef<WakeLockSentinel | null>(null);
+
+    const requestWakeLock = async () => {
+        try {
+            if ('wakeLock' in navigator) {
+                wakeLockRef.current = await navigator.wakeLock.request('screen');
+                console.log('Wake Lock activé');
+            }
+        } catch (err) {
+            console.error('Wake Lock error:', err);
+        }
+    };
+
+    const releaseWakeLock = async () => {
+        if (wakeLockRef.current) {
+            await wakeLockRef.current.release();
+            wakeLockRef.current = null;
+            console.log('Wake Lock libéré');
+        }
+    };
+
+    const toggleWorkState = () => {
+        if (mode === "work") {
+            setMode("break");
+            setDuration (900);
+        } else {
+            setMode("work");
+            setDuration(3600);
+        }
+    }
 
     const handleTimeOut = () => {
         playSound()
+        releaseWakeLock()
     }
 
     const startTimer = () => {
         if(!isRunning){
                 setIsRunning(true)
+                requestWakeLock()
                 intervalRef.current = setInterval(() => {
                 setDuration(prevduration => {
                     if (prevduration <= 0) {
@@ -46,6 +78,7 @@ const Timer = () => {
             clearInterval(intervalRef.current);
             intervalRef.current = null
             setIsRunning(false)
+            releaseWakeLock()
         }
     }
 
@@ -60,6 +93,7 @@ const Timer = () => {
             setDuration(900);
         }
         setIsRunning(false)
+        releaseWakeLock()
     }
 
     const formatTime = (seconds: number) => {
@@ -94,6 +128,8 @@ const Timer = () => {
     }, [])*/
     
     return (
+        <div>
+            <button className="switch-btn" onClick={toggleWorkState}>Switch</button>
             <div className="timer">
                 <p>{mode === "work" ? "Au travail !" : "Pause"}</p>
                 <label>{formatTime(duration)}</label>
@@ -104,6 +140,7 @@ const Timer = () => {
                     <button onClick={resetTimer}>Reset</button>
                 </div>
             </div>
+        </div>
     )
 }
 

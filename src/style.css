@@ -35,3 +35,20 @@ html, body, #root {
 	align-items: center;   
 	justify-content: center; 
 }
+
+/* switch button fixed top-left */
+.switch-btn {
+	position: fixed;
+	top: 1rem;
+	left: 1rem;
+	z-index: 1000;
+	width: auto;
+	height: auto;
+	padding: 0.5rem 0.75rem;
+	font-size: 1rem;
+	border-radius: 10px;
+	box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+	background-color: white;
+	color: rgb(56 133 138);
+	font-weight: 600;
+}
