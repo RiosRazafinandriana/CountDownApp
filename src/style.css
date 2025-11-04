@@ -1,23 +1,33 @@
 .timer {
+    border-radius: 15px;
+    background-color: rgb(83, 151, 156);
 	display: flex;
 	flex-direction: column; 
 	align-items: center;    
 	justify-content: center; 
 	gap: 1rem; /* espace plus grand */
 	font-size: 2.5rem; /* texte énorme pour <label> et <p> */
+    padding: 2rem; /* espace autour des éléments */
 }
 
 button {
+    border: 0;
+    background-color: white;
+    color: rgb(56 133 138);
 	width: 150px;       /* boutons beaucoup plus larges */
 	height: 70px;       /* boutons plus hauts */
 	font-size: 1.8rem;  /* texte des boutons grand */
 	cursor: pointer;
     border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 html, body, #root {
+    background-color: rgb(56 133 138);
+    color: white;
 	height: 100%;
 	margin: 0;
+	font-family: 'Roboto', sans-serif;
 }
 
 #root {

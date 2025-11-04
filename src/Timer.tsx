@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react"
+import { useRef, useState } from "react"
 import { useWithSound } from "./useWithSound"
 import alarm from "./assets/videoplayback.mp3"
 
@@ -97,7 +97,6 @@ const Timer = () => {
             <div className="timer">
                 <p>{mode === "work" ? "Au travail !" : "Pause"}</p>
                 <label>{formatTime(duration)}</label>
-                {duration <= 0 && <p>Timeout !</p>}
 
                 <div style={{display: "flex", flexDirection: "row", gap: "0.5rem"}}>
                     <button onClick={startTimer}>Run</button>
