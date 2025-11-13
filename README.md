@@ -7,10 +7,10 @@ Une application Pomodoro simple pour gérer vos sessions de travail et de pause,
 - Start / Pause / Reset
 - Alarme à la fin du timer
 
-🌐 Démo en ligne
+🌐 Démo en ligne :
 https://count-down-app-dun.vercel.app/
 
-💻 Installation
+💻 Installation :
 git clone https://github.com/riosrazafinandriana/CountdownApp.git
 cd CountdownApp
 npm install
